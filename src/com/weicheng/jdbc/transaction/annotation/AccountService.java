@@ -3,7 +3,7 @@ package com.weicheng.jdbc.transaction.annotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**ÕË»§Service*/
+/**è´¦æˆ·Service*/
 @Service("accountService")
 public class AccountService {
 
@@ -11,7 +11,7 @@ public class AccountService {
 	private AccountDao accountDao;
 
 	public void transfer(int from,int to,int money) throws Exception{
-		if(accountDao.queryMoney(from) < money) throw new Exception("ÕË»§Óà¶î²»×ã");
+		if(accountDao.queryMoney(from) < money) throw new Exception("è´¦æˆ·ä½™é¢ä¸è¶³");
 		accountDao.transfer(from, to, money);
 	}
 	
