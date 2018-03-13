@@ -3,7 +3,7 @@ package com.weicheng.ioc.annotation;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-/**注解创建单例对象演示*/
+/**娉ㄨВ鍒涘缓鍗曚緥瀵硅薄婕旂ず*/
 @Component("singletonUser")
 @Scope("singleton")
 public class SingletonUser {
