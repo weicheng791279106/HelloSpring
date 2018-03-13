@@ -3,7 +3,7 @@ package com.weicheng.aop.config;
 public class Hello {
 
 	/**
-	 * xml配置方式实现AOP操作演示
+	 * xml閰嶇疆鏂瑰紡瀹炵幇AOP鎿嶄綔婕旂ず
 	 * 
 	 * 
 	 * 
