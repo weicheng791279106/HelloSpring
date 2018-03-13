@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring ioc 配置文件 -->
+<beans xmlns="http://www.springframework.org/schema/beans"        
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"              
+    xsi:schemaLocation="                                      
+    		http://www.springframework.org/schema/beans         
+            http://www.springframework.org/schema/beans/spring-beans.xsd">  
+            
+            <!-- ioc生成User类演示：使用类的无参构造方法来创建对象 -->
+    		<bean id="user" class="com.weicheng.ioc.config.User"></bean>      
+    		
+    		<!-- 使用静态工厂创建对象 -->
+    		<bean id="staticFactoryUser" class="com.weicheng.ioc.config.UserStaticFactory" factory-method="getUser"></bean>  
+    		
+    		<!-- 使用普通工厂创建对象 -->
+    		<bean id="userFactory" class="com.weicheng.ioc.config.UserFactory" ></bean> <!-- 1、需要先声明工厂的bean -->
+    		<bean id="factoryUser" factory-bean="userFactory" factory-method="getUser"></bean> <!--2、通过工厂的bean去声明User类的bean -->
+    		
+    		<!-- scope属性演示 -->
+    		<!-- singleton演示 -->
+    		<bean id="singletonUser" class="com.weicheng.ioc.config.User" scope="singleton"></bean>
+    		<!-- protorype演示 -->
+    		<bean id="prototypeUser" class="com.weicheng.ioc.config.User" scope="prototype"></bean>
+    		
+    		
+    		<!-- 属性注入演示 -->
+    		
+    		<!-- 1、使用有参构造方法注入属性 -->
+    		<bean id="constructorArgUser" class="com.weicheng.ioc.config.User">
+    			<constructor-arg name="name" value="韦小宝"></constructor-arg>
+    			<constructor-arg name="age" value="16"></constructor-arg>
+    		</bean>      
+    		
+    		<!-- 2、使用set方法注入属性 -->
+    		<bean id="setArgUser" class="com.weicheng.ioc.config.User">
+    			<property name="name" value="韦小宝"></property>
+    			<property name="age" value="16"></property>
+    		</bean>
+    		
+    		<!-- 注入对象类型属性（重点） -->
+    		<bean name="hand" class="com.weicheng.ioc.config.Hand"></bean> <!-- 1、声明属性对象的bean -->
+    		<bean name="userWithHand" class="com.weicheng.ioc.config.User"> <!-- 2、注入对象属性 -->
+    			<property name="hand" ref="hand"></property>
+    		</bean>
+    		
+    		<!-- 注入复杂类型属性 -->
+    		<bean name="complexArgUser" class="com.weicheng.ioc.config.User">
+    			<!-- 数组类型属性注入 -->
+    			<property name="sonNameArr">
+    				<list>
+    					<value>韦小程</value>
+    					<value>韦小花</value>
+    					<value>韦小贱</value>
+    				</list>
+    			</property>
+    			<!-- List类型属性注入 -->
+    			<property name="sonNameList">
+    				<list>
+    					<value>韦小二</value>
+    					<value>韦小三</value>
+    					<value>韦小四</value>
+    				</list>
+    			</property>
+    			<!-- Map类型属性注入 -->
+    			<property name="sonNameMap">
+    				<map>
+    					<entry key="son1" value="韦小五"></entry>
+    					<entry key="son2" value="韦小六"></entry>
+    					<entry key="son3" value="韦小七"></entry>
+    				</map>
+    			</property>
+    			<!-- Properties类型属性注入 -->
+    			<property name="sonNameProp">
+    				<props>
+    					<prop key="son1">韦小八</prop>
+    					<prop key="son2">韦小九</prop>
+    				</props>
+    			</property>
+    		</bean>
+            
+</beans>
+
+
+
+
+
+
+

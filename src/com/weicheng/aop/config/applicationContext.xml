@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"        
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"              
+    xsi:schemaLocation="                                               
+            http://www.springframework.org/schema/beans    
+            http://www.springframework.org/schema/beans/spring-beans.xsd    
+            http://www.springframework.org/schema/aop  
+            http://www.springframework.org/schema/aop/spring-aop.xsd ">  
+            
+            <!-- xml配置方式实现AOP操作演示 -->
+            
+            <!-- 1、配置对象 -->
+            <bean id="user" class="com.weicheng.aop.config.User"></bean>
+            <bean id="adviceUser" class="com.weicheng.aop.config.AdviceUser"></bean> 
+            
+            
+            <!-- 2、配置aop操作 -->
+            <aop:config>
+            	<!-- 配置切入点 -->
+            	<aop:pointcut expression="execution(* com.weicheng.aop.config.User.use(..))" id="userPointcur"/>
+            	<!-- 配置切面 -->
+            	<aop:aspect ref="adviceUser">
+            		<aop:before method="beforeUse" pointcut-ref="userPointcur"/>
+            		<aop:after-returning method="afterUse" pointcut-ref="userPointcur"/>
+            		<aop:around method="aroundUse" pointcut-ref="userPointcur"/>
+            	</aop:aspect>
+            </aop:config>
+            
+</beans>  
+
+
+
+
