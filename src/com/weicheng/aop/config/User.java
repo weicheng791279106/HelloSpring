@@ -1,6 +1,6 @@
 package com.weicheng.aop.config;
 
-/**´ıÔöÇ¿µÄÀà*/
+/**å¾…å¢å¼ºçš„ç±»*/
 public class User {
 	
 	public void use(){
