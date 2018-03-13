@@ -1,6 +1,6 @@
 package com.weicheng.aop.annotation;
 
-/**´ıÔöÇ¿µÄÀà*/
+/**å¾…å¢å¼ºçš„ç±»*/
 public class User {
 	
 	public void use(){
