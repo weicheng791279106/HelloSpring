@@ -2,20 +2,20 @@ package com.weicheng.aop.config;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
-/**UserÔöÇ¿Àà*/
+/**Userå¢å¼ºç±»*/
 public class AdviceUser {
 	
-	/**Ç°ÖÃÔöÇ¿*/
+	/**å‰ç½®å¢å¼º*/
 	public void beforeUse(){
 		System.out.println("AdviceUser:beforeUse...");
 	}
 	
-	/**ºóÖÃÔöÇ¿*/
+	/**åç½®å¢å¼º*/
 	public void afterUse(){
 		System.out.println("AdviceUser:afterUse...");
 	}
 	
-	/**»·ÈÆÔöÇ¿*/
+	/**ç¯ç»•å¢å¼º*/
 	public void aroundUse(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
 		System.out.println("AdviceUser:aroundUse before...");
 		proceedingJoinPoint.proceed();
