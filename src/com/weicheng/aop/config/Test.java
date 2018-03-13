@@ -7,7 +7,7 @@ public class Test {
 
 	@org.junit.Test
 	public void test(){
-		/*¼ÓÔØxmlÅäÖÃÎÄ¼ş*/
+		/*åŠ è½½xmlé…ç½®æ–‡ä»¶*/
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:/com/weicheng/aop/config/applicationContext.xml");
 		User user = (User) context.getBean("user");
 		user.use();
